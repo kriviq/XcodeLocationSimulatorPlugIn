@@ -1,0 +1,263 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		223F39901D47FB3E006F2A07 /* XcodeLocationSim.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 223F398F1D47FB3E006F2A07 /* XcodeLocationSim.xcscheme */; };
+		223F39931D47FB3E006F2A07 /* XcodeLocationSim.m in Sources */ = {isa = PBXBuildFile; fileRef = 223F39921D47FB3E006F2A07 /* XcodeLocationSim.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		223F398B1D47FB3E006F2A07 /* XcodeLocationSim.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XcodeLocationSim.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		223F398F1D47FB3E006F2A07 /* XcodeLocationSim.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = XcodeLocationSim.xcscheme; path = XcodeLocationSim.xcodeproj/xcshareddata/xcschemes/XcodeLocationSim.xcscheme; sourceTree = SOURCE_ROOT; };
+		223F39911D47FB3E006F2A07 /* XcodeLocationSim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XcodeLocationSim.h; sourceTree = "<group>"; };
+		223F39921D47FB3E006F2A07 /* XcodeLocationSim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XcodeLocationSim.m; sourceTree = "<group>"; };
+		223F39941D47FB3E006F2A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		223F39831D47FB3E006F2A07 = {
+			isa = PBXGroup;
+			children = (
+				223F398D1D47FB3E006F2A07 /* XcodeLocationSim */,
+				223F398C1D47FB3E006F2A07 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		223F398C1D47FB3E006F2A07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				223F398B1D47FB3E006F2A07 /* XcodeLocationSim.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		223F398D1D47FB3E006F2A07 /* XcodeLocationSim */ = {
+			isa = PBXGroup;
+			children = (
+				223F39911D47FB3E006F2A07 /* XcodeLocationSim.h */,
+				223F39921D47FB3E006F2A07 /* XcodeLocationSim.m */,
+				223F39941D47FB3E006F2A07 /* Info.plist */,
+				223F398E1D47FB3E006F2A07 /* Supporting Files */,
+			);
+			path = XcodeLocationSim;
+			sourceTree = "<group>";
+		};
+		223F398E1D47FB3E006F2A07 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				223F398F1D47FB3E006F2A07 /* XcodeLocationSim.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		223F398A1D47FB3E006F2A07 /* XcodeLocationSim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 223F39971D47FB3E006F2A07 /* Build configuration list for PBXNativeTarget "XcodeLocationSim" */;
+			buildPhases = (
+				223F39881D47FB3E006F2A07 /* Sources */,
+				223F39891D47FB3E006F2A07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XcodeLocationSim;
+			productName = XcodeLocationSim;
+			productReference = 223F398B1D47FB3E006F2A07 /* XcodeLocationSim.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		223F39841D47FB3E006F2A07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Kriviq;
+				TargetAttributes = {
+					223F398A1D47FB3E006F2A07 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 223F39871D47FB3E006F2A07 /* Build configuration list for PBXProject "XcodeLocationSim" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 223F39831D47FB3E006F2A07;
+			productRefGroup = 223F398C1D47FB3E006F2A07 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				223F398A1D47FB3E006F2A07 /* XcodeLocationSim */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		223F39891D47FB3E006F2A07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				223F39901D47FB3E006F2A07 /* XcodeLocationSim.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		223F39881D47FB3E006F2A07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				223F39931D47FB3E006F2A07 /* XcodeLocationSim.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		223F39951D47FB3E006F2A07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		223F39961D47FB3E006F2A07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		223F39981D47FB3E006F2A07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = XcodeLocationSim/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_BUNDLE_IDENTIFIER = TID.XcodeLocationSim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		223F39991D47FB3E006F2A07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = XcodeLocationSim/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_BUNDLE_IDENTIFIER = TID.XcodeLocationSim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		223F39871D47FB3E006F2A07 /* Build configuration list for PBXProject "XcodeLocationSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				223F39951D47FB3E006F2A07 /* Debug */,
+				223F39961D47FB3E006F2A07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		223F39971D47FB3E006F2A07 /* Build configuration list for PBXNativeTarget "XcodeLocationSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				223F39981D47FB3E006F2A07 /* Debug */,
+				223F39991D47FB3E006F2A07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 223F39841D47FB3E006F2A07 /* Project object */;
+}
