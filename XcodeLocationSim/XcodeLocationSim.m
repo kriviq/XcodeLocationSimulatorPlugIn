@@ -7,6 +7,13 @@
 //
 
 #import "XcodeLocationSim.h"
+#import <IDEKit/IDEDebugBarContentProvider.h>
+
+@interface XcodeLocationSim ()
+
+@property (nonatomic, strong) NSMutableSet *notifications;
+
+@end
 
 static XcodeLocationSim *sharedPlugin;
 
@@ -38,11 +45,34 @@ static XcodeLocationSim *sharedPlugin;
                                                      selector:@selector(applicationDidFinishLaunching:)
                                                          name:NSApplicationDidFinishLaunchingNotification
                                                        object:nil];
+            self.notifications = [NSMutableSet new];
+            [self observeAllEvents];
+            
         } else {
             [self initializeAndLog];
         }
     }
     return self;
+}
+- (void)observeAllEvents {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(somethingHappened:) name:nil object:nil];
+}
+
+- (void)somethingHappened:(NSNotification *)notification {
+    if (![self.notifications containsObject:notification.name]) {
+        NSLog(@"event - %@, %@", notification.name, [notification.object class]);
+        [self.notifications addObject:notification.name];
+        
+        if ([notification.object class] == [NSMenu class]) {
+            NSMenu *menuItem = (NSMenu *)notification.object;
+            
+            NSLog(@"Menu Items %@", menuItem.itemArray);
+            NSLog(@"Menu Delegate %@", menuItem.delegate);
+//            if (menuItem.delegate && [menuItem class] == [IDESimulateLocationMenuController class]) {
+//                
+//            }
+        }
+    }
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
@@ -81,9 +111,10 @@ static XcodeLocationSim *sharedPlugin;
 // Sample Action, for menu item:
 - (void)doMenuAction
 {
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:@"Hello, World"];
-    [alert runModal];
+    [self.notifications removeAllObjects];
+//    NSAlert *alert = [[NSAlert alloc] init];
+//    [alert setMessageText:@"Hello, World"];
+//    [alert runModal];
 }
 
 @end
