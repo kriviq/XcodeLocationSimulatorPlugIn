@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		223F39901D47FB3E006F2A07 /* XcodeLocationSim.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 223F398F1D47FB3E006F2A07 /* XcodeLocationSim.xcscheme */; };
 		223F39931D47FB3E006F2A07 /* XcodeLocationSim.m in Sources */ = {isa = PBXBuildFile; fileRef = 223F39921D47FB3E006F2A07 /* XcodeLocationSim.m */; };
+		2C308F931D48C13B00C27443 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C308F921D48C13B00C27443 /* AppKit.framework */; };
+		2C308F951D48C14100C27443 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C308F941D48C14100C27443 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,12 +19,31 @@
 		223F39911D47FB3E006F2A07 /* XcodeLocationSim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XcodeLocationSim.h; sourceTree = "<group>"; };
 		223F39921D47FB3E006F2A07 /* XcodeLocationSim.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XcodeLocationSim.m; sourceTree = "<group>"; };
 		223F39941D47FB3E006F2A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C308F8D1D48BFEC00C27443 /* XcodeHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeHeaders.h; sourceTree = "<group>"; };
+		2C308F921D48C13B00C27443 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2C308F941D48C14100C27443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2C308F961D48C37D00C27443 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C308F911D48C13100C27443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C308F951D48C14100C27443 /* Foundation.framework in Frameworks */,
+				2C308F931D48C13B00C27443 /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		223F39831D47FB3E006F2A07 = {
 			isa = PBXGroup;
 			children = (
+				2C308F961D48C37D00C27443 /* Cocoa.framework */,
+				2C308F941D48C14100C27443 /* Foundation.framework */,
+				2C308F921D48C13B00C27443 /* AppKit.framework */,
 				223F398D1D47FB3E006F2A07 /* XcodeLocationSim */,
 				223F398C1D47FB3E006F2A07 /* Products */,
 			);
@@ -43,6 +64,7 @@
 				223F39921D47FB3E006F2A07 /* XcodeLocationSim.m */,
 				223F39941D47FB3E006F2A07 /* Info.plist */,
 				223F398E1D47FB3E006F2A07 /* Supporting Files */,
+				2C308F8D1D48BFEC00C27443 /* XcodeHeaders.h */,
 			);
 			path = XcodeLocationSim;
 			sourceTree = "<group>";
@@ -64,6 +86,7 @@
 			buildPhases = (
 				223F39881D47FB3E006F2A07 /* Sources */,
 				223F39891D47FB3E006F2A07 /* Resources */,
+				2C308F911D48C13100C27443 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,10 +238,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
+				HEADER_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
 				INFOPLIST_FILE = XcodeLocationSim/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				PRODUCT_BUNDLE_IDENTIFIER = TID.XcodeLocationSim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
@@ -229,10 +254,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
+				HEADER_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
 				INFOPLIST_FILE = XcodeLocationSim/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				PRODUCT_BUNDLE_IDENTIFIER = TID.XcodeLocationSim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;
@@ -256,6 +283,7 @@
 				223F39991D47FB3E006F2A07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

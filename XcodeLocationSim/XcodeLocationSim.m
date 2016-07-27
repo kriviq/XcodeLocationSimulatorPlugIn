@@ -7,11 +7,11 @@
 //
 
 #import "XcodeLocationSim.h"
-#import <IDEKit/IDEDebugBarContentProvider.h>
 
 @interface XcodeLocationSim ()
 
 @property (nonatomic, strong) NSMutableSet *notifications;
+@property (nonatomic, strong) id locationSimulatorDelegate;
 
 @end
 
@@ -68,9 +68,13 @@ static XcodeLocationSim *sharedPlugin;
             
             NSLog(@"Menu Items %@", menuItem.itemArray);
             NSLog(@"Menu Delegate %@", menuItem.delegate);
-//            if (menuItem.delegate && [menuItem class] == [IDESimulateLocationMenuController class]) {
-//                
-//            }
+            if (menuItem.delegate) {
+                NSLog(@"delegate is %@", menuItem.delegate);
+                if ([menuItem.delegate isKindOfClass:NSClassFromString(@"IDESimulateLocationMenuController")]) {
+                    NSLog(@"We got a class we want %@", menuItem);
+                    self.locationSimulatorDelegate = menuItem.delegate;
+                }
+            }
         }
     }
 }
@@ -112,6 +116,7 @@ static XcodeLocationSim *sharedPlugin;
 - (void)doMenuAction
 {
     [self.notifications removeAllObjects];
+    [self.locationSimulatorDelegate selectItemAtIndex:0];
 //    NSAlert *alert = [[NSAlert alloc] init];
 //    [alert setMessageText:@"Hello, World"];
 //    [alert runModal];
