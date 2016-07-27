@@ -7,6 +7,7 @@
 //
 
 #import "XcodeLocationSim.h"
+#import "XcodeHeaders.h"
 
 @interface XcodeLocationSim ()
 
@@ -116,10 +117,19 @@ static XcodeLocationSim *sharedPlugin;
 - (void)doMenuAction
 {
     [self.notifications removeAllObjects];
-    [self.locationSimulatorDelegate selectItemAtIndex:0];
+    if (self.locationSimulatorDelegate) {
+        [self.locationSimulatorDelegate selectItem:nil];
+    }
+    
+    
 //    NSAlert *alert = [[NSAlert alloc] init];
 //    [alert setMessageText:@"Hello, World"];
 //    [alert runModal];
+}
+
+- (IDELocationScenario*)customLocationScenario {
+    
+    return nil;
 }
 
 @end
