@@ -24,7 +24,7 @@
 @property(readonly) IDELocationScenario *scenario; // @synthesize scenario=_scenario;
 @property(readonly) NSNumber *longitude; // @synthesize longitude=_longitude;
 @property(readonly) NSNumber *latitude; // @synthesize latitude=_latitude;
-- (void).cxx_destruct;
+//- (void).cxx_destruct;
 - (id)description;
 - (id)initWithLatitude:(id)arg1 longitude:(id)arg2;
 
@@ -51,7 +51,7 @@
 @property(readonly) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly) NSNumber *speed; // @synthesize speed=_speed;
 @property(readonly) BOOL autorepeat; // @synthesize autorepeat=_autorepeat;
-- (void).cxx_destruct;
+//- (void).cxx_destruct;
 @property(readonly, getter=isDefaultScenario) BOOL defaultScenario;
 - (id)description;
 @property(readonly) BOOL isValid;

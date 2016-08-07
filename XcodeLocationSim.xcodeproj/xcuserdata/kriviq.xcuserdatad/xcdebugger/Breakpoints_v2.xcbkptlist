@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XcodeLocationSim/XcodeLocationSim.m"
-            timestampString = "491291041.320757"
+            timestampString = "492273267.048173"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-somethingHappened:"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "-goToNextLocation:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
