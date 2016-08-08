@@ -10,32 +10,7 @@
 #import "XcodeHeaders.h"
 #import "NSObject+Swizzling.h"
 #import <objc/runtime.h>
-
-//NSObject+logProperties.h
-@interface NSObject (logProperties)
-- (void) logProperties;
-@end
-
-@implementation NSObject (logProperties)
-
-- (void) logProperties {
-    
-    NSLog(@"----------------------------------------------- Properties for object %@", self);
-    
-    @autoreleasepool {
-        unsigned int numberOfProperties = 0;
-        objc_property_t *propertyArray = class_copyPropertyList([self class], &numberOfProperties);
-        for (NSUInteger i = 0; i < numberOfProperties; i++) {
-            objc_property_t property = propertyArray[i];
-            NSString *name = [[NSString alloc] initWithUTF8String:property_getName(property)];
-            NSLog(@"Property %@ Value: %@", name, [self valueForKey:name]);
-        }
-        free(propertyArray);
-    }
-    NSLog(@"-----------------------------------------------");
-}
-
-@end
+#import "LocationSImulationDelegate.h"
 
 @interface XcodeLocationSim ()
 
@@ -96,11 +71,6 @@ static XcodeLocationSim *sharedPlugin;
 }
 
 - (void)somethingHappened:(NSNotification *)notification {
-//    NSLog(@"event - %@, %@", notification.name, [notification.object class]);
-//    
-//    if ([notification.name isEqualToString:@"NSMenuDidChangeItemNotification"]) {
-//        NSLog(@"notification object - %@", notification.object);
-//    }
     if (![self.notifications containsObject:notification.name]) {
         NSLog(@"event - %@, %@", notification.name, [notification.object class]);
         [self.notifications addObject:notification.name];
@@ -113,9 +83,15 @@ static XcodeLocationSim *sharedPlugin;
             if (menuItem.delegate) {
                 NSLog(@"delegate is %@", menuItem.delegate);
                 if ([menuItem.delegate isKindOfClass:NSClassFromString(@"IDESimulateLocationMenuController")]) {
+                    
+                    self.locationDelegate = [[LocationSImulationDelegate alloc] initWithSimulator:menuItem.delegate];
+                    
+                    //REMOVE THIS PART WHEN NO LONGER NEEDED
                     NSLog(@"We got a class we want %@", menuItem);
                     self.locationSimulatorDelegate = menuItem.delegate;
                     [self extractCityLocations];
+                    
+                    
 
                 }
             }
@@ -144,6 +120,10 @@ static XcodeLocationSim *sharedPlugin;
 {
     // Create menu items, initialize UI, etc.
     // Sample Menu Item:
+    
+    
+    //TODO: Change the locations of the menu here!
+    //TODO: Possibly extract the locations simulations delegate without waiting for it to be used!
     NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
     if (menuItem) {
         [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
@@ -160,6 +140,9 @@ static XcodeLocationSim *sharedPlugin;
 // Sample Action, for menu item:
 - (void)doMenuAction
 {
+    [self.locationDelegate startMoving];
+    
+    //TODO: REMOVE WHEN NO LONGER NEEDED
     [self.notifications removeAllObjects];
     if (self.locationSimulatorDelegate) {
         [self extractCityLocations];
@@ -302,16 +285,5 @@ static BOOL oddStep;
 - (void)RE_selectItemWithRepresentedObject:(id)arg1 {
     NSLog(@"_selectItemWithRepresentedObject item with arg %@", arg1);
 }
-
-//// 8
-//- (id)Rayrolling_initWithIcon:(id)icon message:(id)message parentWindow:(id)window duration:(double)duration
-//{
-//    // 9
-//    NSLog(@"Swizzle success! %@", self);
-//    
-//    // 10
-//    return [self Rayrolling_initWithIcon:icon message:message parentWindow:window duration:duration];
-//}
-
 @end
 

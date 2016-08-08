@@ -8,10 +8,20 @@
 
 #import <AppKit/AppKit.h>
 
+@protocol LocationSimulationDelegate <NSObject>
+
+@required
+
+- (void)startMoving;
+
+@end
+
 @interface XcodeLocationSim : NSObject
 
 + (instancetype)sharedPlugin;
 
 @property (nonatomic, strong, readonly) NSBundle* bundle;
+
+@property (nonatomic, weak) id <LocationSimulationDelegate> locationDelegate;
 
 @end

@@ -12,6 +12,7 @@
 		223F399E1D49138E006F2A07 /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 223F399D1D49138E006F2A07 /* NSObject+Swizzling.m */; };
 		2C308F931D48C13B00C27443 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C308F921D48C13B00C27443 /* AppKit.framework */; };
 		2C308F951D48C14100C27443 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C308F941D48C14100C27443 /* Foundation.framework */; };
+		2C8EAFB71D587F9100B799B2 /* LocationSImulationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8EAFB61D587F9100B799B2 /* LocationSImulationDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		2C308F921D48C13B00C27443 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		2C308F941D48C14100C27443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C308F961D48C37D00C27443 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2C8EAFB51D587F9100B799B2 /* LocationSImulationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSImulationDelegate.h; sourceTree = "<group>"; };
+		2C8EAFB61D587F9100B799B2 /* LocationSImulationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSImulationDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 				2C308F8D1D48BFEC00C27443 /* XcodeHeaders.h */,
 				223F399C1D49138E006F2A07 /* NSObject+Swizzling.h */,
 				223F399D1D49138E006F2A07 /* NSObject+Swizzling.m */,
+				2C8EAFB51D587F9100B799B2 /* LocationSImulationDelegate.h */,
+				2C8EAFB61D587F9100B799B2 /* LocationSImulationDelegate.m */,
 			);
 			path = XcodeLocationSim;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			files = (
 				223F39931D47FB3E006F2A07 /* XcodeLocationSim.m in Sources */,
 				223F399E1D49138E006F2A07 /* NSObject+Swizzling.m in Sources */,
+				2C8EAFB71D587F9100B799B2 /* LocationSImulationDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
