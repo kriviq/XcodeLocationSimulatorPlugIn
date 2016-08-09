@@ -89,7 +89,7 @@ static XcodeLocationSim *sharedPlugin;
                     //REMOVE THIS PART WHEN NO LONGER NEEDED
                     NSLog(@"We got a class we want %@", menuItem);
                     self.locationSimulatorDelegate = menuItem.delegate;
-                    [self extractCityLocations];
+//                    [self extractCityLocations];
                     
                     
 
@@ -143,113 +143,113 @@ static XcodeLocationSim *sharedPlugin;
     [self.locationDelegate startMoving];
     
     //TODO: REMOVE WHEN NO LONGER NEEDED
-    [self.notifications removeAllObjects];
-    if (self.locationSimulatorDelegate) {
-        [self extractCityLocations];
-        [self startMovingFromLocation:0];
-    }
+//    [self.notifications removeAllObjects];
+//    if (self.locationSimulatorDelegate) {
+//        [self extractCityLocations];
+//        [self startMovingFromLocation:0];
+//    }
 }
 
-static NSInteger currentIndex;
-
-- (void)startMovingFromLocation:(NSInteger)locationIndex {
-    currentIndex = locationIndex;
-    self.currentLocationScenario = self.locations[currentIndex];
-    if (currentIndex >= self.locations.count) {
-        return;
-    }
-    [self.locationSimulatorDelegate _selectItemWithRepresentedObject:self.currentLocationScenario];
-    stepCount = 0;
-    [NSTimer scheduledTimerWithTimeInterval:0.5
-                                     target:self
-                                   selector:@selector(goToNextLocation:)
-                                   userInfo:self.locations[currentIndex + 1]
-                                    repeats:YES];
-}
-
-
-static NSInteger stepCount;
-static BOOL oddStep;
-
-- (void)goToNextLocation:(NSTimer *)timer {
-    id targetLocationScenario = timer.userInfo;
-    if (stepCount >= 1000) {
-        [timer invalidate];
-        [self.locationSimulatorDelegate _selectItemWithRepresentedObject:targetLocationScenario];
-        [self startMovingFromLocation:(currentIndex + 1)];
-
-    }
-    
-    
-    id nextLocationScenario = self.locations[currentIndex + 1];
-    id customizedLocationScenario = oddStep ? nextLocationScenario : self.currentLocationScenario;//self.locations[currentIndex];
-    oddStep = !oddStep;
-    id customizedLocation = [[customizedLocationScenario valueForKey:@"locations"] firstObject];
-    
-    //Calculate the step - extract it! - In the future the step should be set according to runining/cycling/walking scenario
-    if (stepCount == 0) {
-        CGFloat meterDifference = 0.00000003;
-        
-        id currentLocation = [[self.currentLocationScenario valueForKey:@"locations"] firstObject];
-        id targetLocation = [[targetLocationScenario valueForKey:@"locations"] firstObject];
-        
-        NSNumber *currentLongitude = [currentLocation valueForKey:@"longitude"];
-        NSNumber *targetLongitude = [targetLocation valueForKey:@"longitude"];
-        
-        self.lonitudeStep = meterDifference;////([targetLongitude floatValue] - [currentLongitude floatValue]) / 10.f;
-        
-        NSNumber *currentLatitude = [currentLocation valueForKey:@"latitude"];
-        NSNumber *targetLatitude = [targetLocation valueForKey:@"latitude"];
-        
-        self.latitudeStep = meterDifference;//([targetLatitude floatValue] - [currentLatitude floatValue]) / 10.f;
-        
-        self.currentLatitude = [customizedLocation valueForKey:@"latitude"];
-        self.currentLongitude = [customizedLocation valueForKey:@"longitude"];;
-    }
-
+//static NSInteger currentIndex;
+//
+//- (void)startMovingFromLocation:(NSInteger)locationIndex {
+//    currentIndex = locationIndex;
+//    self.currentLocationScenario = self.locations[currentIndex];
+//    if (currentIndex >= self.locations.count) {
+//        return;
+//    }
+//    [self.locationSimulatorDelegate _selectItemWithRepresentedObject:self.currentLocationScenario];
+//    stepCount = 0;
+//    [NSTimer scheduledTimerWithTimeInterval:0.5
+//                                     target:self
+//                                   selector:@selector(goToNextLocation:)
+//                                   userInfo:self.locations[currentIndex + 1]
+//                                    repeats:YES];
+//}
+//
+//
+//static NSInteger stepCount;
+//static BOOL oddStep;
+//
+//- (void)goToNextLocation:(NSTimer *)timer {
+//    id targetLocationScenario = timer.userInfo;
+//    if (stepCount >= 1000) {
+//        [timer invalidate];
+//        [self.locationSimulatorDelegate _selectItemWithRepresentedObject:targetLocationScenario];
+//        [self startMovingFromLocation:(currentIndex + 1)];
+//
+//    }
+//    
+//    
+//    id nextLocationScenario = self.locations[currentIndex + 1];
+//    id customizedLocationScenario = oddStep ? nextLocationScenario : self.currentLocationScenario;//self.locations[currentIndex];
+//    oddStep = !oddStep;
+//    id customizedLocation = [[customizedLocationScenario valueForKey:@"locations"] firstObject];
+//    
+//    //Calculate the step - extract it! - In the future the step should be set according to runining/cycling/walking scenario
+//    if (stepCount == 0) {
+//        CGFloat meterDifference = 0.00000003;
+//        
+//        id currentLocation = [[self.currentLocationScenario valueForKey:@"locations"] firstObject];
+//        id targetLocation = [[targetLocationScenario valueForKey:@"locations"] firstObject];
+//        
+//        NSNumber *currentLongitude = [currentLocation valueForKey:@"longitude"];
+//        NSNumber *targetLongitude = [targetLocation valueForKey:@"longitude"];
+//        
+//        self.lonitudeStep = meterDifference;////([targetLongitude floatValue] - [currentLongitude floatValue]) / 10.f;
+//        
+//        NSNumber *currentLatitude = [currentLocation valueForKey:@"latitude"];
+//        NSNumber *targetLatitude = [targetLocation valueForKey:@"latitude"];
+//        
+//        self.latitudeStep = meterDifference;//([targetLatitude floatValue] - [currentLatitude floatValue]) / 10.f;
+//        
+//        self.currentLatitude = [customizedLocation valueForKey:@"latitude"];
+//        self.currentLongitude = [customizedLocation valueForKey:@"longitude"];;
+//    }
+//
+////    NSNumber *currentLongitude = [customizedLocation valueForKey:@"longitude"];
+//    
+//    self.currentLongitude = [NSNumber numberWithFloat:([self.currentLongitude floatValue] + (self.lonitudeStep  * stepCount))];
+//    [customizedLocation setValue:self.currentLongitude forKey:@"longitude"];
+//
+////    NSNumber *currentLatitude = [customizedLocation valueForKey:@"latitude"];
+//    self.currentLatitude = [NSNumber numberWithFloat:[self.currentLatitude floatValue] + (self.latitudeStep * stepCount)];
+//    [customizedLocation setValue:self.currentLatitude forKey:@"latitude"];
+//    ++stepCount;
+//
+//    [self.locationSimulatorDelegate _selectItemWithRepresentedObject:customizedLocationScenario];
+//}
+//
+//- (void)goToLocation:(NSTimer *)timer {
+//    if (currentIndex >= self.locations.count) {
+//        [timer invalidate];
+//        return;
+//    }
+//    id customizedLocationScenario = self.locations[currentIndex];
+//    id customizedLocation = [[customizedLocationScenario valueForKey:@"locations"] firstObject];
 //    NSNumber *currentLongitude = [customizedLocation valueForKey:@"longitude"];
-    
-    self.currentLongitude = [NSNumber numberWithFloat:([self.currentLongitude floatValue] + (self.lonitudeStep  * stepCount))];
-    [customizedLocation setValue:self.currentLongitude forKey:@"longitude"];
-
-//    NSNumber *currentLatitude = [customizedLocation valueForKey:@"latitude"];
-    self.currentLatitude = [NSNumber numberWithFloat:[self.currentLatitude floatValue] + (self.latitudeStep * stepCount)];
-    [customizedLocation setValue:self.currentLatitude forKey:@"latitude"];
-    ++stepCount;
-
-    [self.locationSimulatorDelegate _selectItemWithRepresentedObject:customizedLocationScenario];
-}
-
-- (void)goToLocation:(NSTimer *)timer {
-    if (currentIndex >= self.locations.count) {
-        [timer invalidate];
-        return;
-    }
-    id customizedLocationScenario = self.locations[currentIndex];
-    id customizedLocation = [[customizedLocationScenario valueForKey:@"locations"] firstObject];
-    NSNumber *currentLongitude = [customizedLocation valueForKey:@"longitude"];
-    [customizedLocation setValue:[NSNumber numberWithFloat:([currentLongitude floatValue] + 0.5f)] forKey:@"longitude"];
-    
-    [self.locationSimulatorDelegate _selectItemWithRepresentedObject:customizedLocationScenario];
-    ++currentIndex;
-}
-
-- (void)extractCityLocations {
-    NSMutableArray *locations = [NSMutableArray new];
-    if (self.locationSimulatorDelegate) {
-        
-        for (id scenario in [self.locationSimulatorDelegate itemsForFilesInWorkspace]) {
-            if ([(NSString *)[scenario valueForKey:@"identifier"] containsString:@"StZ"]) {
-                [locations addObject:scenario];
-            }
-            else if ([(NSString *)[scenario valueForKey:@"identifier"] containsString:@"WorkloadLocation"]) {
-                self.workloadLocationScenario = scenario;
-            }
-        }
-    }
-    
-    self.locations = locations.copy;
-}
+//    [customizedLocation setValue:[NSNumber numberWithFloat:([currentLongitude floatValue] + 0.5f)] forKey:@"longitude"];
+//    
+//    [self.locationSimulatorDelegate _selectItemWithRepresentedObject:customizedLocationScenario];
+//    ++currentIndex;
+//}
+//
+//- (void)extractCityLocations {
+//    NSMutableArray *locations = [NSMutableArray new];
+//    if (self.locationSimulatorDelegate) {
+//        
+//        for (id scenario in [self.locationSimulatorDelegate itemsForFilesInWorkspace]) {
+//            if ([(NSString *)[scenario valueForKey:@"identifier"] containsString:@"StZ"]) {
+//                [locations addObject:scenario];
+//            }
+//            else if ([(NSString *)[scenario valueForKey:@"identifier"] containsString:@"WorkloadLocation"]) {
+//                self.workloadLocationScenario = scenario;
+//            }
+//        }
+//    }
+//    
+//    self.locations = locations.copy;
+//}
 
 @end
 

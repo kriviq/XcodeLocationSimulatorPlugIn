@@ -22,6 +22,6 @@
 
 @property (nonatomic, strong, readonly) NSBundle* bundle;
 
-@property (nonatomic, weak) id <LocationSimulationDelegate> locationDelegate;
+@property (nonatomic, strong) id <LocationSimulationDelegate> locationDelegate;
 
 @end
