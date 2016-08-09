@@ -6,11 +6,11 @@
 //  Copyright © 2016 Kriviq. All rights reserved.
 //
 
-#import "LocationSImulationDelegate.h"
+#import "LocationSimulationDelegate.h"
 #import "XcodeHeaders.h"
 #import <MapKit/MapKit.h>
 
-@interface LocationSImulationDelegate ()
+@interface LocationSimulationDelegate ()
 
 @property (nonatomic, strong) NSArray *locations;
 @property (nonatomic, assign) CGPoint currentCoordinates;
@@ -24,7 +24,7 @@
 @end
 
 
-@implementation LocationSImulationDelegate
+@implementation LocationSimulationDelegate
 
 - (instancetype)initWithSimulator:(id)locationSimulator {
     self = [super init];
@@ -115,7 +115,6 @@
     
     direction.x = direction.x / metersDistance;
     direction.y = direction.y / metersDistance;
-    
     
     //TODO: The distance added should be calculated according to the speed we want to move with!
     return CGPointMake(self.currentCoordinates.x + (direction.x * 0.000001), self.currentCoordinates.y + (direction.y + 0.000001));

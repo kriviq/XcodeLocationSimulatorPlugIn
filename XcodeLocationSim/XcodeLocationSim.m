@@ -10,7 +10,7 @@
 #import "XcodeHeaders.h"
 #import "NSObject+Swizzling.h"
 #import <objc/runtime.h>
-#import "LocationSImulationDelegate.h"
+#import "LocationSimulationDelegate.h"
 
 @interface XcodeLocationSim ()
 

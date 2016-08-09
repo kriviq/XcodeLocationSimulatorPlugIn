@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "XcodeLocationSim.h"
 
-@interface LocationSImulationDelegate : NSObject <LocationSimulationDelegate>
+@interface LocationSimulationDelegate : NSObject <LocationSimulationDelegate>
 
 @property (nonatomic, strong) id locationSimulator;
 
