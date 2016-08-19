@@ -20,6 +20,7 @@
 @property (nonatomic, assign) CGFloat refreshRate;
 
 @property (nonatomic, assign) BOOL oddStep;
+@property (nonatomic, assign) CGFloat step;
 
 @end
 
@@ -30,6 +31,7 @@
     self = [super init];
     if (self) {
         _locationSimulator = locationSimulator;
+        _step = 0.000001;
         [self loadLocations];
     }
     
@@ -78,7 +80,14 @@
 }
 
 - (BOOL)atTargetLocation {
-    return NO;
+//    return NO;
+    CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:self.currentCoordinates.x longitude:self.currentCoordinates.y];
+    CLLocation *targetLocation = [[CLLocation alloc] initWithLatitude:self.targetCoordinates.x longitude:self.targetCoordinates.y];
+    CLLocationDistance metersDistance = [currentLocation distanceFromLocation:targetLocation];
+//    NSLog(@"distance is %f", metersDistance);
+    return metersDistance <= 50;
+//    CGFloat distance = sqrtf(powf(self.targetCoordinates.x - self.currentCoordinates.x, 2) + powf(self.targetCoordinates.y - self.currentCoordinates.y, 2));
+//    return distance <= 3 * self.step;
 }
 
 - (void)takeNextStep:(NSTimer *)timer {
@@ -112,6 +121,7 @@
     CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:self.currentCoordinates.x longitude:self.currentCoordinates.y];
     CLLocation *targetLocation = [[CLLocation alloc] initWithLatitude:self.targetCoordinates.x longitude:self.targetCoordinates.y];
     CLLocationDistance metersDistance = [currentLocation distanceFromLocation:targetLocation];
+//    CGFloat distance = sqrtf(powf(self.targetCoordinates.x - self.currentCoordinates.x, 2) + powf(self.targetCoordinates.y - self.currentCoordinates.y, 2));
     
     direction.x = direction.x / metersDistance;
     direction.y = direction.y / metersDistance;

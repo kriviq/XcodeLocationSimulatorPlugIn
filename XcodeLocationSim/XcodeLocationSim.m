@@ -14,6 +14,7 @@
 
 @interface XcodeLocationSim ()
 
+//TODO: Delete the unused stuff
 @property (nonatomic, strong) NSMutableSet *notifications;
 @property (nonatomic, strong) id locationSimulatorDelegate;
 @property (nonatomic, strong) NSArray *locations;
@@ -71,32 +72,32 @@ static XcodeLocationSim *sharedPlugin;
 }
 
 - (void)somethingHappened:(NSNotification *)notification {
-    if (![self.notifications containsObject:notification.name]) {
-        NSLog(@"event - %@, %@", notification.name, [notification.object class]);
-        [self.notifications addObject:notification.name];
-        
-        if ([notification.object class] == [NSMenu class]) {
-            NSMenu *menuItem = (NSMenu *)notification.object;
-            
-            NSLog(@"Menu Items %@", menuItem.itemArray);
-            NSLog(@"Menu Delegate %@", menuItem.delegate);
-            if (menuItem.delegate) {
-                NSLog(@"delegate is %@", menuItem.delegate);
-                if ([menuItem.delegate isKindOfClass:NSClassFromString(@"IDESimulateLocationMenuController")]) {
-                    
-                    self.locationDelegate = [[LocationSImulationDelegate alloc] initWithSimulator:menuItem.delegate];
-                    
-                    //REMOVE THIS PART WHEN NO LONGER NEEDED
-                    NSLog(@"We got a class we want %@", menuItem);
-                    self.locationSimulatorDelegate = menuItem.delegate;
-//                    [self extractCityLocations];
-                    
-                    
-
-                }
-            }
-        }
-    }
+//    if (![self.notifications containsObject:notification.name]) {
+//        NSLog(@"event - %@, %@", notification.name, [notification.object class]);
+//        [self.notifications addObject:notification.name];
+//        
+//        if ([notification.object class] == [NSMenu class]) {
+//            NSMenu *menuItem = (NSMenu *)notification.object;
+//            
+//            NSLog(@"Menu Items %@", menuItem.itemArray);
+//            NSLog(@"Menu Delegate %@", menuItem.delegate);
+//            if (menuItem.delegate) {
+//                NSLog(@"delegate is %@", menuItem.delegate);
+//                if ([menuItem.delegate isKindOfClass:NSClassFromString(@"IDESimulateLocationMenuController")]) {
+//                    
+//                    self.locationDelegate = [[LocationSimulationDelegate alloc] initWithSimulator:menuItem.delegate];
+//                    
+//                    //REMOVE THIS PART WHEN NO LONGER NEEDED
+//                    NSLog(@"We got a class we want %@", menuItem);
+//                    self.locationSimulatorDelegate = menuItem.delegate;
+////                    [self extractCityLocations];
+//                    
+//                    
+//
+//                }
+//            }
+//        }
+//    }
     
 }
 
@@ -124,7 +125,15 @@ static XcodeLocationSim *sharedPlugin;
     
     //TODO: Change the locations of the menu here!
     //TODO: Possibly extract the locations simulations delegate without waiting for it to be used!
+    NSMenuItem *simLocationItem = [[[[NSApp mainMenu] itemWithTitle:@"Debug"] submenu] itemWithTitle:@"Simulate Location"];
+    if (simLocationItem) {
+        NSLog(@"simLocation item %@", simLocationItem);
+        self.locationSimulatorDelegate = [simLocationItem submenu].delegate;
+    }
+    
+    
     NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
+    
     if (menuItem) {
         [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
         NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Do Action" action:@selector(doMenuAction) keyEquivalent:@""];
@@ -140,6 +149,7 @@ static XcodeLocationSim *sharedPlugin;
 // Sample Action, for menu item:
 - (void)doMenuAction
 {
+    self.locationDelegate = [[LocationSimulationDelegate alloc] initWithSimulator:self.locationSimulatorDelegate];
     [self.locationDelegate startMoving];
     
     //TODO: REMOVE WHEN NO LONGER NEEDED
